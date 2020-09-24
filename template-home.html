@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <link rel = "stylesheet" href = "main.css"> <!--Get the style sheet-->
+</head>
+
+
+<body>
+    <!--Navigation Bar-->
+    <ul>
+        <li style = "float: left;">drew expeditions</li>
+        <li style = "font-weight: bolder; text-decoration: underline;">apply</li>
+        <li>FAQ</li>
+        <li>our expeditions</li>        
+    </ul>
+
+    <!--Carousel for the images-->
+    <div class="carousel">
+        <div class="myCarousel fade">
+            <img src="images/tim-tiedemann-149766-unsplash.jpg" width="1333px" height="550px" alt="Couple Mountain Walk" style = "object-fit: cover;">
+        </div>
+
+        <div class="myCarousel fade">
+            <img src="images/loic-mermilliod-213394-unsplash.jpg" width="100%" height="500px" alt="Cars Expedition">
+        </div>
+
+        <div class="myCarousel fade">
+            <img src="images/jean-frederic-fortier-25858-unsplash.jpg" width="100%" height="500px" alt="Looking at a map">
+        </div>
+
+        <div class = "centered">
+            <h1>Mountain Expedition</h1>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div style="text-align:center"> 
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <!--Create a script to enable carousel. Used Javascript for it-->
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("myCarousel");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { 
+                slideIndex = 1 
+            }
+
+            if (n < 1) { 
+                slideIndex = slides.length 
+            } 
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; 
+            } 
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", ""); 
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+    <!--default text-->
+    <p>
+        Loreem ipsum dolor sit amet, consectetur adipicing elit. In lacnia suscipit quam, sagittis dictum nulla scelerisque eu. Nam orci
+        lacus, accumsam a blandit nec. finibus condimentum quam. Donec egesta, purus eget congue ultrices, quam odio matti tortor, vitae fermentum
+        neque diam non dolor.
+    </p>
+    <p>
+        Aliquam hendrerit imperdit sodales. Maecenas porta lorem ut aliquet lacinia. Phasellus elementum auguee ipsum, sed maximus nunc
+        aliquam sed. Sed suscipit tempus mollis. Aenean quis aliquam dui. Sed dignissim cursus faucibus nunc orci.
+    </p>
+    <!--Button - Probably have to link to database, use php to link it. Just do fn, sn, email, phone-->
+    <button type = "button">Send Application</button>
+    <!--footer-->
+    <hr style= "width: 90%;">
+    <footer>
+        <p style="text-align: center; font-size: 20px; color: #3D3D3D;">@drew expeditions</p>
+    </footer>
+</body>
+
+</html>
